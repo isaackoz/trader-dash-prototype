@@ -10,9 +10,9 @@ const columns = [
 ];
 
 const statusOptions = [
-  { name: "Active", uid: "active" },
-  { name: "Paused", uid: "paused" },
-  { name: "Vacation", uid: "vacation" },
+  { name: "Open", uid: "open" },
+  { name: "Closed", uid: "closed" },
+  { name: "Pending", uid: "pending" },
 ];
 
 const trades = [
@@ -25,7 +25,7 @@ const trades = [
     nominal: "343949584",
     pnl: "+12%",
     breakEven: "64000",
-    status: "active",
+    status: "open",
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ const trades = [
     nominal: "60000",
     pnl: "+8%",
     breakEven: "3700",
-    status: "active",
+    status: "open",
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ const trades = [
     nominal: "1800",
     pnl: "-5%",
     breakEven: "1.6",
-    status: "paused",
+    status: "pending",
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ const trades = [
     nominal: "10000",
     pnl: "+3%",
     breakEven: "195",
-    status: "vacation",
+    status: "closed",
   },
   {
     id: 5,
@@ -69,7 +69,7 @@ const trades = [
     nominal: "1000",
     pnl: "+10%",
     breakEven: "1.8",
-    status: "active",
+    status: "open",
   },
   {
     id: 6,
@@ -80,7 +80,7 @@ const trades = [
     nominal: "3000",
     pnl: "+20%",
     breakEven: "0.25",
-    status: "active",
+    status: "open",
   },
   {
     id: 7,
@@ -91,7 +91,7 @@ const trades = [
     nominal: "2800",
     pnl: "+15%",
     breakEven: "30",
-    status: "paused",
+    status: "pending",
   },
   {
     id: 8,
@@ -102,7 +102,7 @@ const trades = [
     nominal: "9000",
     pnl: "+5%",
     breakEven: "140",
-    status: "vacation",
+    status: "closed",
   },
   {
     id: 9,
@@ -113,7 +113,7 @@ const trades = [
     nominal: "2500",
     pnl: "-3%",
     breakEven: "26",
-    status: "active",
+    status: "open",
   },
   {
     id: 10,
@@ -124,7 +124,7 @@ const trades = [
     nominal: "6000",
     pnl: "+12%",
     breakEven: "27",
-    status: "active",
+    status: "open",
   },
   {
     id: 11,
@@ -135,7 +135,7 @@ const trades = [
     nominal: "2480000",
     pnl: "+15%",
     breakEven: "58000",
-    status: "active",
+    status: "open",
   },
   {
     id: 12,
@@ -146,7 +146,7 @@ const trades = [
     nominal: "63000",
     pnl: "+10%",
     breakEven: "3200",
-    status: "active",
+    status: "open",
   },
   {
     id: 13,
@@ -157,7 +157,7 @@ const trades = [
     nominal: "1320",
     pnl: "-4%",
     breakEven: "1.3",
-    status: "paused",
+    status: "pending",
   },
   {
     id: 14,
@@ -168,7 +168,7 @@ const trades = [
     nominal: "8100",
     pnl: "+2%",
     breakEven: "175",
-    status: "vacation",
+    status: "closed",
   },
   {
     id: 15,
@@ -179,7 +179,7 @@ const trades = [
     nominal: "810",
     pnl: "+8%",
     breakEven: "1.7",
-    status: "active",
+    status: "open",
   },
   {
     id: 16,
@@ -190,7 +190,7 @@ const trades = [
     nominal: "2375",
     pnl: "+15%",
     breakEven: "0.22",
-    status: "active",
+    status: "open",
   },
   {
     id: 17,
@@ -201,7 +201,7 @@ const trades = [
     nominal: "2400",
     pnl: "+12%",
     breakEven: "28",
-    status: "paused",
+    status: "pending",
   },
   {
     id: 18,
@@ -212,7 +212,7 @@ const trades = [
     nominal: "7700",
     pnl: "+3%",
     breakEven: "135",
-    status: "vacation",
+    status: "closed",
   },
   {
     id: 19,
@@ -223,7 +223,7 @@ const trades = [
     nominal: "2070",
     pnl: "-2%",
     breakEven: "24",
-    status: "active",
+    status: "open",
   },
   {
     id: 20,
@@ -234,7 +234,7 @@ const trades = [
     nominal: "5320",
     pnl: "+10%",
     breakEven: "26",
-    status: "active",
+    status: "open",
   },
   {
     id: 21,
@@ -245,7 +245,7 @@ const trades = [
     nominal: "2304000",
     pnl: "+10%",
     breakEven: "58000",
-    status: "active",
+    status: "open",
   },
   {
     id: 22,
@@ -256,7 +256,7 @@ const trades = [
     nominal: "74000",
     pnl: "+6%",
     breakEven: "3500",
-    status: "active",
+    status: "open",
   },
   {
     id: 23,
@@ -267,7 +267,7 @@ const trades = [
     nominal: "1820",
     pnl: "-3%",
     breakEven: "1.5",
-    status: "paused",
+    status: "pending",
   },
   {
     id: 24,
@@ -278,7 +278,7 @@ const trades = [
     nominal: "11550",
     pnl: "+4%",
     breakEven: "200",
-    status: "vacation",
+    status: "closed",
   },
   {
     id: 25,
@@ -289,7 +289,7 @@ const trades = [
     nominal: "1056",
     pnl: "+9%",
     breakEven: "2",
-    status: "active",
+    status: "open",
   },
   {
     id: 26,
@@ -300,7 +300,7 @@ const trades = [
     nominal: "3675",
     pnl: "+18%",
     breakEven: "0.3",
-    status: "active",
+    status: "open",
   },
   {
     id: 27,
@@ -311,7 +311,7 @@ const trades = [
     nominal: "3400",
     pnl: "+13%",
     breakEven: "35",
-    status: "paused",
+    status: "pending",
   },
   {
     id: 28,
@@ -322,7 +322,7 @@ const trades = [
     nominal: "10400",
     pnl: "+6%",
     breakEven: "150",
-    status: "vacation",
+    status: "closed",
   },
   {
     id: 29,
@@ -333,7 +333,7 @@ const trades = [
     nominal: "3080",
     pnl: "-1%",
     breakEven: "29",
-    status: "active",
+    status: "open",
   },
   {
     id: 30,
@@ -344,7 +344,7 @@ const trades = [
     nominal: "6930",
     pnl: "+11%",
     breakEven: "30",
-    status: "active",
+    status: "open",
   },
 ];
 

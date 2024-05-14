@@ -46,6 +46,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
 
     socketRef.current.onmessage = (event) => {
       const receivedData = JSON.parse(event.data);
+      console.log(receivedData);
       if (receivedData.type === "ticker" && receivedData.product_id) {
         setData((prevData) => ({
           ...prevData,

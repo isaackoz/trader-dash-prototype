@@ -4,6 +4,7 @@ import {
   TitleHeaderWrapper,
   Wrapper,
 } from "@/components/custom/wrapper";
+import { ConnectionsPage } from "./_connections/connections-page";
 
 export default function Page() {
   return (
@@ -13,7 +14,9 @@ export default function Page() {
           <TitleHeaderName>Connections</TitleHeaderName>
         </TitleHeaderContent>
       </TitleHeaderWrapper>
-      <Wrapper>hello</Wrapper>
+      <Wrapper>
+        <ConnectionsPage />
+      </Wrapper>
     </>
   );
 }

@@ -4,6 +4,7 @@ import {
   TitleHeaderWrapper,
   Wrapper,
 } from "@/components/custom/wrapper";
+import { PortfolioPage } from "./_components/portfolio-page";
 
 export default function Page() {
   return (
@@ -13,7 +14,9 @@ export default function Page() {
           <TitleHeaderName>Portfolio</TitleHeaderName>
         </TitleHeaderContent>
       </TitleHeaderWrapper>
-      <Wrapper>hello</Wrapper>
+      <Wrapper>
+        <PortfolioPage />
+      </Wrapper>
     </>
   );
 }
