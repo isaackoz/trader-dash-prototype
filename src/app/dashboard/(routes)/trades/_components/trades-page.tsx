@@ -15,14 +15,13 @@ import {
   DropdownMenu,
   DropdownItem,
   Chip,
-  User,
   Pagination,
   ChipVariantProps,
   SortDescriptor,
   type Selection,
 } from "@nextui-org/react";
 import { PlusIcon, DotIcon, SearchIcon, ChevronDownIcon } from "lucide-react";
-import { columns, users, statusOptions } from "./static-data";
+import { columns, trades, statusOptions } from "./static-data";
 
 const statusColorMap: Record<string, ChipVariantProps["color"]> = {
   active: "success",
@@ -70,23 +69,23 @@ export function TradesPage() {
   }, [visibleColumns]);
 
   const filteredItems = React.useMemo(() => {
-    let filteredUsers = [...users];
+    let filteredTrade = [...trades];
 
     if (hasSearchFilter) {
-      filteredUsers = filteredUsers.filter((user) =>
-        user.tickerPair.toLowerCase().includes(filterValue.toLowerCase())
+      filteredTrade = filteredTrade.filter((trade) =>
+        trade.tickerPair.toLowerCase().includes(filterValue.toLowerCase())
       );
     }
     if (
       statusFilter !== "all" &&
       Array.from(statusFilter).length !== statusOptions.length
     ) {
-      filteredUsers = filteredUsers.filter((user) =>
-        Array.from(statusFilter).includes(user.status)
+      filteredTrade = filteredTrade.filter((trade) =>
+        Array.from(statusFilter).includes(trade.status)
       );
     }
 
-    return filteredUsers;
+    return filteredTrade;
   }, [hasSearchFilter, statusFilter, filterValue]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
@@ -109,21 +108,15 @@ export function TradesPage() {
   }, [sortDescriptor, items]);
 
   const renderCell = React.useCallback(
-    (
-      user: {
-        [x: string]: any;
-        status: string | number;
-      },
-      columnKey: string | number
-    ) => {
-      const cellValue = user[columnKey];
+    (trade: any, columnKey: string | number) => {
+      const cellValue = trade[columnKey];
 
       switch (columnKey) {
         case "status":
           return (
             <Chip
               className="capitalize"
-              color={statusColorMap[user.status]}
+              color={statusColorMap[trade.status]}
               size="sm"
               variant="flat"
             >
@@ -198,7 +191,7 @@ export function TradesPage() {
           <Input
             isClearable
             className="w-full sm:max-w-[44%]"
-            placeholder="Search by name..."
+            placeholder="Search by ticker pair..."
             startContent={<SearchIcon />}
             value={filterValue}
             onClear={() => onClear()}
@@ -260,7 +253,7 @@ export function TradesPage() {
         </div>
         <div className="flex justify-between items-center">
           <span className="text-default-400 text-small">
-            Total {users.length} users
+            Total {trades.length} trades
           </span>
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
@@ -359,7 +352,7 @@ export function TradesPage() {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent={"No users found"} items={sortedItems}>
+      <TableBody emptyContent={"No trades found"} items={sortedItems}>
         {(item) => (
           <TableRow key={item.id}>
             {(columnKey) => (
